@@ -1,4 +1,4 @@
-irBnB Clone - The Console Project
+**AirBnB Clone - The Console Project**
 
 **Description:**
 The objective of this project is to deploy a simple Airbnb website - check it out on [Airbnb](https://www.airbnb.com/). It involves creating a command interpreter, similar to a simple shell, to manage Airbnb objects.
