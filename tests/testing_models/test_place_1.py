@@ -26,7 +26,7 @@ class TestPlace_1(unittest.TestCase):
         self.my_city = City()
         self.amenity = Amenity()
         self.my_place = Place()
-        self.my_place_key = f"Place.{self.my_place.id}"
+        self.my_place_key = f"Place.{self.my_place.id_1}"
 
     def test_public_class_attributes_1(self):
         """
@@ -54,8 +54,8 @@ class TestPlace_1(unittest.TestCase):
         self.assertNotIn('latitude', self.my_place.__dict__)
         self.assertNotIn('longitude', self.my_place.__dict__)
         self.assertNotIn('amenity_ids', self.my_place.__dict__)
-        self.my_place.city_id = self.my_city.id
-        self.my_place.user_id = self.my_user.id
+        self.my_place.city_id = self.my_city.id_1
+        self.my_place.user_id = self.my_user.id_1
         self.my_place.name = "Sun N Sands"
         self.my_place.description = "Eat all you can."
         self.my_place.number_rooms = "Lemme count."
@@ -64,9 +64,9 @@ class TestPlace_1(unittest.TestCase):
         self.my_place.price_by_night = "We will agree."
         self.my_place.latitude = "Equator"
         self.my_place.longitude = "We have forgotten"
-        self.my_place.amenity_ids = self.amenity.id
-        self.assertEqual(self.my_place.city_id, self.my_city.id)
-        self.assertEqual(self.my_place.user_id, self.my_user.id)
+        self.my_place.amenity_ids = self.amenity.id_1
+        self.assertEqual(self.my_place.city_id, self.my_city.id_1)
+        self.assertEqual(self.my_place.user_id, self.my_user.id_1)
         self.assertIs(self.my_place.name, "Sun N Sands")
         self.assertIs(self.my_place.description, "Eat all you can.")
         self.assertIs(self.my_place.number_rooms, "Lemme count.")
@@ -75,9 +75,9 @@ class TestPlace_1(unittest.TestCase):
         self.assertIs(self.my_place.price_by_night, "We will agree.")
         self.assertIs(self.my_place.latitude, "Equator")
         self.assertIs(self.my_place.longitude, "We have forgotten")
-        self.assertEqual(self.my_place.amenity_ids, self.amenity.id)
-        self.my_place.city_id = [self.my_city.id]
-        self.my_place.user_id = [self.my_user.id]
+        self.assertEqual(self.my_place.amenity_ids, self.amenity.id_1)
+        self.my_place.city_id = [self.my_city.id_1]
+        self.my_place.user_id = [self.my_user.id_1]
         self.my_place.name = ["Sun N Sands"]
         self.my_place.description = ["Eat all you can."]
         self.my_place.number_rooms = ["Lemme count."]
@@ -86,9 +86,9 @@ class TestPlace_1(unittest.TestCase):
         self.my_place.price_by_night = ["We will agree."]
         self.my_place.latitude = ["Equator"]
         self.my_place.longitude = ["We have forgotten"]
-        self.my_place.amenity_ids = [self.amenity.id]
-        self.assertEqual(self.my_place.city_id, [self.my_city.id])
-        self.assertEqual(self.my_place.user_id, [self.my_user.id])
+        self.my_place.amenity_ids = [self.amenity.id_1]
+        self.assertEqual(self.my_place.city_id, [self.my_city.id_1])
+        self.assertEqual(self.my_place.user_id, [self.my_user.id_1])
         self.assertEqual(self.my_place.name, ["Sun N Sands"])
         self.assertEqual(self.my_place.description, ["Eat all you can."])
         self.assertEqual(self.my_place.number_rooms, ["Lemme count."])
@@ -97,9 +97,9 @@ class TestPlace_1(unittest.TestCase):
         self.assertEqual(self.my_place.price_by_night, ["We will agree."])
         self.assertEqual(self.my_place.latitude, ["Equator"])
         self.assertEqual(self.my_place.longitude, ["We have forgotten"])
-        self.assertEqual(self.my_place.amenity_ids, [self.amenity.id])
-        self.my_place.city_id = {self.my_city.id}
-        self.my_place.user_id = {self.my_user.id}
+        self.assertEqual(self.my_place.amenity_ids, [self.amenity.id_1])
+        self.my_place.city_id = {self.my_city.id_1}
+        self.my_place.user_id = {self.my_user.id_1}
         self.my_place.name = {"Sun N Sands"}
         self.my_place.description = {"Eat all you can."}
         self.my_place.number_rooms = {"Lemme count."}
@@ -108,9 +108,9 @@ class TestPlace_1(unittest.TestCase):
         self.my_place.price_by_night = {"We will agree."}
         self.my_place.latitude = {"Equator"}
         self.my_place.longitude = {"We have forgotten"}
-        self.my_place.amenity_ids = {self.amenity.id}
-        self.assertEqual(self.my_place.city_id, {self.my_city.id})
-        self.assertEqual(self.my_place.user_id, {self.my_user.id})
+        self.my_place.amenity_ids = {self.amenity.id_1}
+        self.assertEqual(self.my_place.city_id, {self.my_city.id_1})
+        self.assertEqual(self.my_place.user_id, {self.my_user.id_1})
         self.assertEqual(self.my_place.name, {"Sun N Sands"})
         self.assertEqual(self.my_place.description, {"Eat all you can."})
         self.assertEqual(self.my_place.number_rooms, {"Lemme count."})
@@ -119,9 +119,9 @@ class TestPlace_1(unittest.TestCase):
         self.assertEqual(self.my_place.price_by_night, {"We will agree."})
         self.assertEqual(self.my_place.latitude, {"Equator"})
         self.assertEqual(self.my_place.longitude, {"We have forgotten"})
-        self.assertEqual(self.my_place.amenity_ids, {self.amenity.id})
-        self.my_place.city_id = {'city_id': self.my_city.id}
-        self.my_place.user_id = {'user_id': self.my_user.id}
+        self.assertEqual(self.my_place.amenity_ids, {self.amenity.id_1})
+        self.my_place.city_id = {'city_id': self.my_city.id_1}
+        self.my_place.user_id = {'user_id': self.my_user.id_1}
         self.my_place.name = {'name': "Sun N Sands"}
         self.my_place.description = {'description': "Eat all you can."}
         self.my_place.number_rooms = {'number_rooms': "Come count."}
@@ -130,9 +130,9 @@ class TestPlace_1(unittest.TestCase):
         self.my_place.price_by_night = {'price_by_night': "We will agree."}
         self.my_place.latitude = {'latitude': "Equator"}
         self.my_place.longitude = {'longitude': "We have forgotten"}
-        self.my_place.amenity_ids = {'amenity_ids': self.amenity.id}
-        self.assertEqual(self.my_place.city_id, {'city_id': self.my_city.id})
-        self.assertEqual(self.my_place.user_id, {'user_id': self.my_user.id})
+        self.my_place.amenity_ids = {'amenity_ids': self.amenity.id_1}
+        self.assertEqual(self.my_place.city_id, {'city_id': self.my_city.id_1})
+        self.assertEqual(self.my_place.user_id, {'user_id': self.my_user.id_1})
         self.assertEqual(self.my_place.name, {'name': "Sun N Sands"})
         self.assertEqual(self.my_place.description,
                          {'description': "Eat all you can."})
@@ -147,7 +147,7 @@ class TestPlace_1(unittest.TestCase):
         self.assertEqual(self.my_place.longitude,
                          {'longitude': "We have forgotten"})
         self.assertEqual(self.my_place.amenity_ids,
-                         {'amenity_ids': self.amenity.id})
+                         {'amenity_ids': self.amenity.id_1})
         self.my_place.city_id = 11
         self.my_place.user_id = 12
         self.my_place.name = 13
@@ -178,8 +178,8 @@ class TestPlace_1(unittest.TestCase):
         self.assertIs(self.my_place.__class__.__name__, 'Place')
         self.assertIn('created_at', self.my_place.__dict__)
         self.assertIn('updated_at', self.my_place.__dict__)
-        self.assertIn('id', self.my_place.__dict__)
-        self.assertIs(type(self.my_place.__dict__['id']), str)
+        self.assertIn('id_1', self.my_place.__dict__)
+        self.assertIs(type(self.my_place.__dict__['id_1']), str)
         self.assertIs(type(self.my_place.__dict__['created_at']),
                       datetime.datetime)
         self.assertIs(type(self.my_place.__dict__['updated_at']),
@@ -190,7 +190,7 @@ class TestPlace_1(unittest.TestCase):
         Tests the string method.
         """
         str_text1 = f"[{self.my_place.__class__.__name__}] "
-        str_text2 = f"({self.my_place.id}) {self.my_place.__dict__}\n"
+        str_text2 = f"({self.my_place.id_1}) {self.my_place.__dict__}\n"
         str_text = str_text1 + str_text2
         with patch('sys.stdout', new=StringIO()) as mock_print:
             print(self.my_place)

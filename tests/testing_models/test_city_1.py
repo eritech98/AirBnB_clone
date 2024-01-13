@@ -22,7 +22,7 @@ class TestCity_1(unittest.TestCase):
     def setUp(self):
         self.my_state = State()
         self.my_city = City()
-        self.my_city_key = f"City.{self.my_city.id}"
+        self.my_city_key = f"City.{self.my_city.id_1}"
 
     def test_public_class_attributes_1(self):
         """
@@ -33,9 +33,9 @@ class TestCity_1(unittest.TestCase):
         self.assertNotIn('name', self.my_city.__dict__)
         self.assertNotIn('state_id', self.my_city.__dict__)
         self.my_city.name = 'Nairobi'
-        self.my_city.state_id = self.my_state.id
+        self.my_city.state_id = self.my_state.id_1
         self.assertIs(self.my_city.name, 'Nairobi')
-        self.assertIs(self.my_city.state_id, self.my_state.id)
+        self.assertIs(self.my_city.state_id, self.my_state.id_1)
         self.my_city.name = 12
         self.my_city.state_id = 12
         self.assertIs(self.my_city.name, 12)
@@ -49,9 +49,9 @@ class TestCity_1(unittest.TestCase):
         self.assertEqual(self.my_city.name, ['Turkana'])
         self.assertEqual(self.my_city.state_id, [98])
         self.my_city.name = {'name': 'Kibwezi'}
-        self.my_city.state_id = {'id': 678}
+        self.my_city.state_id = {'id_1': 678}
         self.assertEqual(self.my_city.name, {'name': 'Kibwezi'})
-        self.assertEqual(self.my_city.state_id, {'id': 678})
+        self.assertEqual(self.my_city.state_id, {'id_1': 678})
         self.my_city.name = True
         self.my_city.state_id = False
         self.assertIs(self.my_city.name, True)
@@ -64,8 +64,8 @@ class TestCity_1(unittest.TestCase):
         self.assertIs(self.my_city.__class__.__name__, 'City')
         self.assertIn('created_at', self.my_city.__dict__)
         self.assertIn('updated_at', self.my_city.__dict__)
-        self.assertIn('id', self.my_city.__dict__)
-        self.assertIs(type(self.my_city.__dict__['id']), str)
+        self.assertIn('id_1', self.my_city.__dict__)
+        self.assertIs(type(self.my_city.__dict__['id_1']), str)
         self.assertIs(type(self.my_city.__dict__['created_at']),
                       datetime.datetime)
         self.assertIs(type(self.my_city.__dict__['updated_at']),
@@ -76,7 +76,7 @@ class TestCity_1(unittest.TestCase):
         Tests the string method.
         """
         str_text1 = f"[{self.my_city.__class__.__name__}] "
-        str_text2 = f"({self.my_city.id}) {self.my_city.__dict__}\n"
+        str_text2 = f"({self.my_city.id_1}) {self.my_city.__dict__}\n"
         str_text = str_text1 + str_text2
         with patch('sys.stdout', new=StringIO()) as mock_print:
             print(self.my_city)

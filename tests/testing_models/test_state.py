@@ -19,7 +19,7 @@ class TestState_1(unittest.TestCase):
     """
     def setUp(self):
         self.my_state = State()
-        self.my_state_key = f"State.{self.my_state.id}"
+        self.my_state_key = f"State.{self.my_state.id_1}"
 
     def test_public_class_attributes_1(self):
         """
@@ -39,7 +39,7 @@ class TestState_1(unittest.TestCase):
         self.my_state.name = True
         self.assertIs(self.my_state.name, True)
         self.my_state.name = {'KITUI'}
-        self.assertEqual(self.my_state.name, 'KITUI'})
+        self.assertEqual(self.my_state.name, {'KITUI'})
         self.my_state.name = ('Rift Valley', 'KITALE')
         self.assertEqual(self.my_state.name, ('Rift Valley', 'KITALE'))
 
@@ -50,8 +50,8 @@ class TestState_1(unittest.TestCase):
         self.assertIs(self.my_state.__class__.__name__, 'State')
         self.assertIn('created_at', self.my_state.__dict__)
         self.assertIn('updated_at', self.my_state.__dict__)
-        self.assertIn('id', self.my_state.__dict__)
-        self.assertIs(type(self.my_state.__dict__['id']), str)
+        self.assertIn('id_1', self.my_state.__dict__)
+        self.assertIs(type(self.my_state.__dict__['id_1']), str)
         self.assertIs(type(self.my_state.__dict__['created_at']),
                       datetime.datetime)
         self.assertIs(type(self.my_state.__dict__['updated_at']),
@@ -62,7 +62,7 @@ class TestState_1(unittest.TestCase):
         Tests the string method.
         """
         str_text1 = f"[{self.my_state.__class__.__name__}] "
-        str_text2 = f"({self.my_state.id}) {self.my_state.__dict__}\n"
+        str_text2 = f"({self.my_state.id_1}) {self.my_state.__dict__}\n"
         str_text = str_text1 + str_text2
         with patch('sys.stdout', new=StringIO()) as mock_print:
             print(self.my_state)

@@ -20,7 +20,7 @@ class TestUser_1(unittest.TestCase):
 
     def setUp(self):
         self.first_user = User()
-        self.first_user_key = f"User.{self.first_user.id}"
+        self.first_user_key = f"User.{self.first_user.id_1}"
 
     def test_public_class_attributes_1(self):
         """
@@ -110,8 +110,8 @@ class TestUser_1(unittest.TestCase):
         self.assertIs(self.first_user.__class__.__name__, 'User')
         self.assertIn('created_at', self.first_user.__dict__)
         self.assertIn('updated_at', self.first_user.__dict__)
-        self.assertIn('id', self.first_user.__dict__)
-        self.assertIs(type(self.first_user.__dict__['id']), str)
+        self.assertIn('id_1', self.first_user.__dict__)
+        self.assertIs(type(self.first_user.__dict__['id_1']), str)
         self.assertIs(type(self.first_user.__dict__['created_at']),
                       datetime.datetime)
         self.assertIs(type(self.first_user.__dict__['updated_at']),
@@ -122,7 +122,7 @@ class TestUser_1(unittest.TestCase):
         Tests the string method.
         """
         str_text1 = f"[{self.first_user.__class__.__name__}] "
-        str_text2 = f"({self.first_user.id}) {self.first_user.__dict__}\n"
+        str_text2 = f"({self.first_user.id_1}) {self.first_user.__dict__}\n"
         str_text = str_text1 + str_text2
         with patch('sys.stdout', new=StringIO()) as mock_print:
             print(self.first_user)

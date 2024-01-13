@@ -29,8 +29,8 @@ class TestBase_1(unittest.TestCase):
         my_model_dict = self.my_model.to_dict_1()
         derived_model = BaseModel(**my_model_dict)
         test_model = BaseModel()
-        test_model.id = str(21)
-        self.assertEqual(test_model.id, '21')
+        test_model.id_1 = str(21)
+        self.assertEqual(test_model.id_1, '21')
         self.assertIs(self.my_model.__class__.__name__, 'BaseModel')
         self.assertEqual(derived_model.name, self.my_model.name)
         self.assertEqual(derived_model.my_number, self.my_model.my_number)
@@ -38,11 +38,11 @@ class TestBase_1(unittest.TestCase):
         self.assertIs(type(derived_model.created_at), datetime.datetime)
         self.assertIs(type(derived_model.updated_at), datetime.datetime)
         self.assertNotIn('__class__', derived_model.__dict__)
-        self.assertIs(type(self.my_model.id), str)
-        self.assertIs(type(derived_model.id), str)
-        self.assertIs(storage.all()[f"BaseModel.{self.my_model.id}"],
+        self.assertIs(type(self.my_model.id_1), str)
+        self.assertIs(type(derived_model.id_1), str)
+        self.assertIs(storage.all()[f"BaseModel.{self.my_model.id_1}"],
                       self.my_model)
-        self.assertIsNot(storage.all()[f"BaseModel.{derived_model.id}"],
+        self.assertIsNot(storage.all()[f"BaseModel.{derived_model.id_1}"],
                          derived_model)
 
     def test_str_1(self):
@@ -50,7 +50,7 @@ class TestBase_1(unittest.TestCase):
         Tests the __str__functions.
         """
         str_text1 = f"[{self.my_model.__class__.__name__}] "
-        str_text2 = f"({self.my_model.id}) {self.my_model.__dict__}\n"
+        str_text2 = f"({self.my_model.id_1}) {self.my_model.__dict__}\n"
         str_text = str_text1 + str_text2
         with patch('sys.stdout', new=StringIO()) as mock_print:
             print(self.my_model)
@@ -62,20 +62,20 @@ class TestBase_1(unittest.TestCase):
         """
         new_model = BaseModel()
         initial_time = self.my_model.updated_at
-        self.assertIn(f"BaseModel.{new_model.id}", storage.all())
-        self.assertIn(f"BaseModel.{self.my_model.id}", storage.all())
+        self.assertIn(f"BaseModel.{new_model.id_1}", storage.all())
+        self.assertIn(f"BaseModel.{self.my_model.id_1}", storage.all())
         self.my_model.save()
         storage.reload()
-        self.assertIn(f"BaseModel.{self.my_model.id}", storage.all())
+        self.assertIn(f"BaseModel.{self.my_model.id_1}", storage.all())
         # new_model will be saved even though we didn't cALL
         # the method save on i
         # It's because it's in the storage.all()
         # befo my_model.save() was called
         # and it was saved a result of that.
-        self.assertIn(f"BaseModel.{new_model.id}", storage.all())
-        self.assertIsNot(new_model, storage.all()[f"BaseModel.{new_model.id}"])
+        self.assertIn(f"BaseModel.{new_model.id_1}", storage.all())
+        self.assertIsNot(new_model, storage.all()[f"BaseModel.{new_model.id_1}"])
         self.assertIsNot(self.my_model,
-                         storage.all()[f"BaseModel.{self.my_model.id}"])
+                         storage.all()[f"BaseModel.{self.my_model.id_1}"])
         self.assertNotEqual(initial_time, self.my_model.updated_at)
         self.assertTrue(os.path.isfile('file.json'), True)
         # Demonstrating that if we don't call that save() function at all
@@ -84,19 +84,19 @@ class TestBase_1(unittest.TestCase):
         # The only way to find whether it has been saved
         # is to run ANOTHER program
         another_model = BaseModel()
-        self.assertIn(f"BaseModel.{another_model.id}", storage.all())
+        self.assertIn(f"BaseModel.{another_model.id_1}", storage.all())
         storage.reload()
-        self.assertIn(f"BaseModel.{another_model.id}", storage.all())
+        self.assertIn(f"BaseModel.{another_model.id_1}", storage.all())
         # The test below shows its the same object in the storage.all()
         self.assertIs(another_model,
-                      storage.all()[f"BaseModel.{another_model.id}"])
+                      storage.all()[f"BaseModel.{another_model.id_1}"])
         # The test below shows anther_model wasn't reloaded from the json file
         # hence not saved unlike de others.
         with open('file.json', 'r', encoding='utf-8') as file:
             saved_dict = json.load(file)
-            self.assertNotIn(f"BaseModel.{another_model.id}", saved_dict)
-            self.assertIn(f"BaseModel.{new_model.id}", saved_dict)
-            self.assertIn(f"BaseModel.{self.my_model.id}", storage.all())
+            self.assertNotIn(f"BaseModel.{another_model.id_1}", saved_dict)
+            self.assertIn(f"BaseModel.{new_model.id_1}", saved_dict)
+            self.assertIn(f"BaseModel.{self.my_model.id_1}", storage.all())
 
     def test_to_dict_1(self):
         """

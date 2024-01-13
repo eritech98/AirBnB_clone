@@ -14,7 +14,7 @@ class BaseModel():
     """
 
     def __init__(self, *args, **kwargs):
-        self.id = str(uuid.uuid4())
+        self.id_1 = str(uuid.uuid4())
         self.created_at = datetime.datetime.now()
         self.updated_at = datetime.datetime.now()
         if len(kwargs) == 0:
@@ -31,7 +31,7 @@ class BaseModel():
         """
         Called when a Base Object is caLLed.
         """
-        return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
+        return f"[{self.__class__.__name__}] ({self.id_1}) {self.__dict__}"
 
     def save(self):
         """

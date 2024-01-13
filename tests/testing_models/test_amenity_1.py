@@ -20,7 +20,7 @@ class TestAmenity_1(unittest.TestCase):
 
     def setUp(self):
         self.amenity = Amenity()
-        self.amenity_key = f"Amenity.{self.amenity.id}"
+        self.amenity_key = f"Amenity.{self.amenity.id_1}"
 
     def test_public_class_attributes_1(self):
         """
@@ -50,8 +50,8 @@ class TestAmenity_1(unittest.TestCase):
         self.assertIs(self.amenity.__class__.__name__, 'Amenity')
         self.assertIn('created_at', self.amenity.__dict__)
         self.assertIn('updated_at', self.amenity.__dict__)
-        self.assertIn('id', self.amenity.__dict__)
-        self.assertIs(type(self.amenity.__dict__['id']), str)
+        self.assertIn('id_1', self.amenity.__dict__)
+        self.assertIs(type(self.amenity.__dict__['id_1']), str)
         self.assertIs(type(self.amenity.__dict__['created_at']),
                       datetime.datetime)
         self.assertIs(type(self.amenity.__dict__['updated_at']),
@@ -62,7 +62,7 @@ class TestAmenity_1(unittest.TestCase):
         Tests the string method.
         """
         str_text1 = f"[{self.amenity.__class__.__name__}] "
-        str_text2 = f"({self.amenity.id}) {self.amenity.__dict__}\n"
+        str_text2 = f"({self.amenity.id_1}) {self.amenity.__dict__}\n"
         str_text = str_text1 + str_text2
         with patch('sys.stdout', new=StringIO()) as mock_print:
             print(self.amenity)

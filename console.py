@@ -39,12 +39,12 @@ class HBNBCommand(cmd.Cmd):
             new_obj_1.save()
             print(new_obj_1.id)
         else:
-            print("** class doesn't exist **")
+            print("** class does not exist **")
 
     def do_show(self, class_plus_id):
         """
         Prints the string Representation of an instance
-        based on the classs name and id.
+        based on the classs name and id_1.
         Ex: $ show BaseModel 1234-1234-1234.
         """
         if not class_plus_id:
@@ -79,8 +79,8 @@ class HBNBCommand(cmd.Cmd):
             class_name_1 = shlex.split(class_plus_id)[0]
             obj_id_1 = shlex.split(class_plus_id)[1]
             all_objs = storage.all()
-            if f"{class_name}.{obj_id}" in all_objs.keys():
-                del all_objs[f"{class_name}.{obj_id}"]
+            if f"{class_name_1}.{obj_id_1}" in all_objs.keys():
+                del all_objs[f"{class_name_1}.{obj_id_1}"]
                 storage.save()
             else:
                 print("** no instance found **")

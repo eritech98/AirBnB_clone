@@ -22,7 +22,7 @@ class TestReview_1(unittest.TestCase):
 
     def setUp(self):
         self.my_review = Review()
-        self.my_review_key = f"Review.{self.my_review.id}"
+        self.my_review_key = f"Review.{self.my_review.id_1}"
         self.my_place = Place()
         self.my_user = User()
 
@@ -36,11 +36,11 @@ class TestReview_1(unittest.TestCase):
         self.assertNotIn('place_id', self.my_review.__dict__)
         self.assertNotIn('user_id', self.my_review.__dict__)
         self.assertNotIn('text', self.my_review.__dict__)
-        self.my_review.place_id = self.my_place.id
-        self.my_review.user_id = self.my_user.id
+        self.my_review.place_id = self.my_place.id_1
+        self.my_review.user_id = self.my_user.id_1
         self.my_review.text = "I liked the beach and the swings."
-        self.assertIs(self.my_review.place_id, self.my_place.id)
-        self.assertIs(self.my_review.user_id, self.my_user.id)
+        self.assertIs(self.my_review.place_id, self.my_place.id_1)
+        self.assertIs(self.my_review.user_id, self.my_user.id_1)
         self.assertIs(self.my_review.text,
                       "I liked the beach and the swings.")
         self.my_review.place_id = 12
@@ -49,33 +49,33 @@ class TestReview_1(unittest.TestCase):
         self.assertIs(self.my_review.place_id, 12)
         self.assertIs(self.my_review.user_id, 13)
         self.assertIs(self.my_review.text, 14)
-        self.my_review.place_id = [self.my_place.id]
-        self.my_review.user_id = [self.my_user.id]
+        self.my_review.place_id = [self.my_place.id_1]
+        self.my_review.user_id = [self.my_user.id_1]
         self.my_review.text = ["I liked the beach and the swings."]
-        self.assertEqual(self.my_review.place_id, [self.my_place.id])
-        self.assertEqual(self.my_review.user_id, [self.my_user.id])
+        self.assertEqual(self.my_review.place_id, [self.my_place.id_1])
+        self.assertEqual(self.my_review.user_id, [self.my_user.id_1])
         self.assertEqual(self.my_review.text,
                          ["I liked the beach and the swings."])
-        self.my_review.place_id = {self.my_place.id}
-        self.my_review.user_id = {self.my_user.id}
+        self.my_review.place_id = {self.my_place.id_1}
+        self.my_review.user_id = {self.my_user.id_1}
         self.my_review.text = {"I liked the beach and the swings."}
-        self.assertEqual(self.my_review.place_id, {self.my_place.id})
-        self.assertEqual(self.my_review.user_id, {self.my_user.id})
+        self.assertEqual(self.my_review.place_id, {self.my_place.id_1})
+        self.assertEqual(self.my_review.user_id, {self.my_user.id_1})
         self.assertEqual(self.my_review.text,
                          {"I liked the beach and the swings."})
-        self.my_review.place_id = {'place_id': self.my_place.id}
-        self.my_review.user_id = {'user_id': self.my_user.id}
+        self.my_review.place_id = {'place_id': self.my_place.id_1}
+        self.my_review.user_id = {'user_id': self.my_user.id_1}
         self.my_review.text = {'text': "I liked the beach and the swings."}
         self.assertEqual(self.my_review.place_id,
-                         {'place_id': self.my_place.id})
-        self.assertEqual(self.my_review.user_id, {'user_id': self.my_user.id})
+                         {'place_id': self.my_place.id_1})
+        self.assertEqual(self.my_review.user_id, {'user_id': self.my_user.id_1})
         self.assertEqual(self.my_review.text,
                          {'text': "I liked the beach and the swings."})
-        self.my_review.place_id = (self.my_place.id, '897')
-        self.my_review.user_id = (self.my_user.id, 908)
+        self.my_review.place_id = (self.my_place.id_1, '897')
+        self.my_review.user_id = (self.my_user.id_1, 908)
         self.my_review.text = ("I liked the beach and the swings.", 9)
-        self.assertEqual(self.my_review.place_id, (self.my_place.id, '897'))
-        self.assertEqual(self.my_review.user_id, (self.my_user.id, 908))
+        self.assertEqual(self.my_review.place_id, (self.my_place.id_1, '897'))
+        self.assertEqual(self.my_review.user_id, (self.my_user.id_1, 908))
         self.assertEqual(self.my_review.text,
                          ("I liked the beach and the swings.", 9))
         self.my_review.place_id = True
