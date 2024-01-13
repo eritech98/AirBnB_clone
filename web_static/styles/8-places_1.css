@@ -1,0 +1,123 @@
+.places
+{
+    position: relative;
+    width: 100%;
+    text-align: center;
+}
+
+.places h1{
+    font-size: 30px;
+    margin-left: 20px;
+    text-align: left;
+}
+
+.stretch1, .stretch2{
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.places article{
+    width: 390px;
+    padding: 20px;
+    margin: 20px;
+    border: 1px solid #FF5A5F;
+    border-radius: 4px;
+    position: relative;
+}
+
+.places article h2{
+    font-size: 30px;
+}
+
+.price_by_night{
+    color: #FF5A5F;
+    border: 1px solid #FF5A5F;
+    border-radius: 50%;
+    min-width: 60px;
+    height: 60px;
+    font-size: 30px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 30px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.information{
+    height: 80px;
+    border-top: 1px solid #DDDDDD;
+    border-bottom: 1px solid #DDDDDD;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.max_guest{
+    width: 100px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.max_guest .image{
+    content: url(../images/guests.png);
+    height: 80%;
+    position: relative;
+}
+
+.number_rooms{
+    width: 100px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+.number_rooms .image{
+    content: url(../images/icon_bed.png);
+    height: 80%;
+    position: relative;
+    margin: auto;
+}
+
+.number_bathrooms{
+    width: 100px;
+    vertical-align: top;
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.number_bathrooms .image{
+    content: url(../images/icon_bath.png);
+    height: 80%;
+    position: relative;
+    margin: auto;
+}
+
+.Owner{
+    font-weight: bold;
+}
+
+.places .user{
+    margin-top: 10px;
+    text-align: left;
+}
+
+p{
+    text-align: left;
+}
