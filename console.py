@@ -57,8 +57,8 @@ class HBNBCommand(cmd.Cmd):
             class_name_1 = shlex.split(class_plus_id)[0]
             obj_id_1 = shlex.split(class_plus_id)[1]
             all_objs = storage.all()
-            if f"{class_name}.{obj_id}" in all_objs.keys():
-                print(all_objs[f"{class_name}.{obj_id}"])
+            if f"{class_name_1}.{obj_id_1}" in all_objs.keys():
+                print(all_objs[f"{class_name_1}.{obj_id_1}"])
             else:
                 print("** no instance found **")
         else:
