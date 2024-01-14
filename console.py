@@ -37,7 +37,7 @@ class HBNBCommand(cmd.Cmd):
             class_Name_1 = shlex.split(class_name_1)[0]
             new_obj_1 = eval(class_Name_1)()
             new_obj_1.save()
-            print(new_obj_1.id)
+            print(new_obj_1.id_1)
         else:
             print("** class does not exist **")
 
