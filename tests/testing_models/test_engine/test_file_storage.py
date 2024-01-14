@@ -11,7 +11,7 @@ from models import storage
 from models.engine.file_storage import FileStorage
 
 
-class _TestFileStorage_1(unittest.TestCase):
+class TestFileStorage_1(unittest.TestCase):
     """
     Tests the FileStorage class.
     """
@@ -22,8 +22,8 @@ class _TestFileStorage_1(unittest.TestCase):
         """
         Tests the class attribtes.
         """
-        self.assertEqual(storage.all(), FileStorage.__objects_1)
-        self.assertEqual(FileStorage.__file_path_1, "file.json")
+        self.assertEqual(storage.all(), FileStorage._FileStorage__objects_1)
+        self.assertEqual(FileStorage._FileStorage__file_path_1, "file.json")
 
     def test_all_1(self):
         """
